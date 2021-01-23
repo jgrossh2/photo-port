@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { capitalizeFirstLetter } from '../../utils/helpers';
 
 
-function Nav() {
-    useEffect(() => {
-        document.title = capitalizeFirstLetter(currentCategory.name);
-        // currentCategory directs hook to re-render the component on changes to the value of the state
-    }, [currentCategory]);
+function Nav(props) {
     const {
         categories = [],
         setCurrentCategory,
         currentCategory,
     } = props;
+
+    // useEffect(() => {
+    //     document.title = capitalizeFirstLetter(currentCategory.name);
+    //     // currentCategory directs hook to re-render the component on changes to the value of the state
+    // }, [currentCategory]);
 
     return(
         <header className="flex-row px-1">
@@ -35,7 +36,8 @@ function Nav() {
                 className={`mx-1 ${
                     // if currentCategory.name === category.name is true, then navActive will be returned
                     currentCategory.name === category.name && 'navActive'
-                }`} key={category.name}>
+                    }`} 
+                    key={category.name}>
                     {/* wrapped in function declaration to avoid function call when component renders */}
                     <span
                         onClick={() => {
