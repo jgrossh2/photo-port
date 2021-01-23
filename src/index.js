@@ -1,3 +1,4 @@
+// this file attaches the root react component to DOM
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
