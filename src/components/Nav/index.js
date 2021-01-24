@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { capitalizeFirstLetter } from '../../utils/helpers';
 
 
@@ -9,10 +9,10 @@ function Nav(props) {
         currentCategory,
     } = props;
 
-    // useEffect(() => {
-    //     document.title = capitalizeFirstLetter(currentCategory.name);
-    //     // currentCategory directs hook to re-render the component on changes to the value of the state
-    // }, [currentCategory]);
+    useEffect(() => {
+        document.title = capitalizeFirstLetter(currentCategory.name);
+        // currentCategory directs hook to re-render the component on changes to the value of the state
+    }, [currentCategory]);
 
     return(
         <header className="flex-row px-1">

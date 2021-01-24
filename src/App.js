@@ -4,7 +4,7 @@ import Nav from './components/Nav';
 import Gallery from './components/Gallery';
 
 function App() {
-  const categories = useState([
+  const [categories] = useState([
     {
       name: 'commercial',
       description: 'Photos of grocery stores, food trucks, and other commercial projects',
