@@ -8,6 +8,8 @@ const categories = [
   ]
   const mockCurrentCategory = jest.fn();
   const mockSetCurrentCategory = jest.fn();
+  const mockContactSeleceted = jest.fn();
+  const mockSetContactSelected = jest.fn();
 
 // adds the cleanup utility
 afterEach(cleanup)
@@ -18,6 +20,8 @@ describe('Nav component', () => {
             categories={categories}
             SetCurrentCategory={mockSetCurrentCategory}
             currentCategory={mockCurrentCategory}
+            contactSelected={mockContactSeleceted}
+            setContactSelected={mockSetContactSelected}
         />);
     });
     // snapshot test
@@ -26,6 +30,8 @@ describe('Nav component', () => {
             categories={categories}
             setCurrentCategory={mockSetCurrentCategory}
             currentCategory={mockCurrentCategory}
+            contactSelected={mockContactSeleceted}
+            setContactSelected={mockSetContactSelected}
             />);
         // assert value comparison
         expect(asFragment()).toMatchSnapshot();
@@ -39,6 +45,8 @@ describe('emoji is visible', () => {
             categories={categories}
             setCurrentCategory={mockSetCurrentCategory}
             currentCategory={mockCurrentCategory}
+            contactSelected={mockContactSeleceted}
+            setContactSelected={mockSetContactSelected}
             />);
         // Assert
         expect(getByLabelText('camera')).toHaveTextContent('📸');
@@ -53,6 +61,8 @@ describe('links are visible', () => {
             categories={categories}
             setCurrentCategory={mockSetCurrentCategory}
             currentCategory={mockCurrentCategory}
+            contactSelected={mockContactSeleceted}
+            setContactSelected={mockSetContactSelected}
             />);
         // Assert
         expect(getByTestId('link')).toHaveTextContent('Oh Snap!');

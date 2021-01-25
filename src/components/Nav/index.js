@@ -7,6 +7,8 @@ function Nav(props) {
         categories = [],
         setCurrentCategory,
         currentCategory,
+        contactSelected,
+        setContactSelected
     } = props;
 
     useEffect(() => {
@@ -23,25 +25,28 @@ function Nav(props) {
         </h2>
         <nav>
           <ul className="flex-row">
-            <li className="mx-2">
-              <a data-testid="about" href="#about">
+            <li className={`mx-2 ${contactSelected && 'navActive'}`}>
+              {/* when about is selected, set to false and rendered */}
+              <a data-testid="about" href="#about" onClick={() => setContactSelected(false)}>
                 About me
               </a>
             </li>
             <li>
-              <span>Contact</span>
+              <span onClick={() => setContactSelected(true)}>Contact</span>
             </li>
             {categories.map((category) => (
             <li
                 className={`mx-1 ${
-                    // if currentCategory.name === category.name is true, then navActive will be returned
-                    currentCategory.name === category.name && 'navActive'
+                    // if currentCategory.name === category.name is true, and contactSelected is false, then navActive will be returned
+                    currentCategory.name === category.name && !contactSelected && 'navActive'
                     }`} 
                     key={category.name}>
                     {/* wrapped in function declaration to avoid function call when component renders */}
                     <span
                         onClick={() => {
-                            setCurrentCategory(category)
+                            setCurrentCategory(category);
+                            // gallery is rendered
+                            setContactSelected(false);
                         }}
                     >
                         {capitalizeFirstLetter(category.name)}
