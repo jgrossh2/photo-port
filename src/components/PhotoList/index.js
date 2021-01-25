@@ -118,7 +118,7 @@ import Modal from '../Modal';
                 {currentPhotos.map((image, i) => (
                     <img
                     // require not common practice, but here is useable
-                    src={require(`../../assets/small/${category}/${i}.jpg`)}
+                    src={require(`../../assets/small/${category}/${i}.jpg`).default}
                     alt={image.name}
                     onClick={() => toggleModal(image, i)}
                     className="img-thumbnail mx-1"
