@@ -105,15 +105,15 @@ import Modal from '../Modal';
     const toggleModal = (image, i) => {
       // uses spread operator and adds index to state
       setCurrentPhoto({...image, index: i});
-      // open modal once clicked
-      setIsModalOpen(true);
+      // open modal once clicked, uses !isModalOpen instead of true to toggle between true and false
+      setIsModalOpen(!isModalOpen);
     }
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentPhoto, setCurrentPhoto] = useState();
     return (
         <div>
           {/* will only render modal open when value is true */}
-          {isModalOpen && <Modal currentPhoto={currentPhoto} />}
+          {isModalOpen && (<Modal currentPhoto={currentPhoto} onClose={toggleModal} />)}
             <div className="flex-row">
                 {currentPhotos.map((image, i) => (
                     <img
