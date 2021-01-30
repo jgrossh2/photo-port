@@ -4,7 +4,7 @@ import { validateEmail } from '../../utils/helpers';
 function ContactForm() {
         // sets form to empty strings, clearing unput fields 
     // formState has 3 keyvalue pairs to represent inputs
-    const [formState, setFormState] = useState({ name:' ', email: ' ', message: ' '});
+    const [formState, setFormState] = useState({ name:'', email: '', message: ''});
     const [errorMessage, setErrorMessage] = useState('');
     const { name, email, message } = formState;
 
